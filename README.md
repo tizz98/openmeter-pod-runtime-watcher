@@ -14,7 +14,7 @@ This application is meant to be run using [Helm](https://helm.sh/), but you can 
 
 ### Helm (recommended)
 
-_soon_
+[See the helm chart README](./charts/openmeter-pod-runtime-watcher/README.md).
 
 ### Local (testing only)
 

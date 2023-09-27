@@ -4,20 +4,14 @@ metadata:
   name: {{ include "openmeter-pod-runtime-watcher.serviceAccountName" . }}
   labels:
     {{- include "openmeter-pod-runtime-watcher.labels" . | nindent 4 }}
+  namespace: {{ .Values.settings.namespace_override | default .Release.Namespace }}
 
-{{- if not .Values.settings.namespace_override }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
   name: {{ include "openmeter-pod-runtime-watcher.serviceAccountName" . }}
-{{ else }}
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: {{ include "openmeter-pod-runtime-watcher.serviceAccountName" . }}
-{{- end -}}
 
 subjects:
   - kind: ServiceAccount
     name: {{ include "openmeter-pod-runtime-watcher.serviceAccountName" . }}
-    namespace: {{ .Values.settings.namespace_override | default .Release.Namespace }}
+    namespace: {{ .Release.Namespace }}

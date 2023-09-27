@@ -42,10 +42,11 @@ spec:
             - name: OPENMETER_TOKEN
               valueFrom:
                 secretKeyRef:
-                  key: {{ . }}
+                  name: {{ . }}
+                  key: token
             {{- end }}
             - name: NAMESPACE
-              value: {{ .Values.settings.namespace | default .Release.Namespace }}
+              value: {{ .Values.settings.namespace_override | default .Release.Namespace }}
             - name: LABEL_SELECTOR
               value: {{ .Values.settings.label_selector }}
             - name: SOURCE

@@ -68,11 +68,7 @@ async fn main() -> anyhow::Result<()> {
                     "Sending pod info to OpenMeter"
                 );
 
-                match pod_info
-                    .send_to_openmeter(&openmeter_api)
-                    .await
-                    .context("Failed to send pod info to OpenMeter")
-                {
+                match pod_info.send_to_openmeter(&openmeter_api).await {
                     Ok(_) => info!(
                         monitor = monitor,
                         subject = subject,
