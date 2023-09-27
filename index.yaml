@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  openmeter-pod-runtime-watcher:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-09-27T20:48:48.242563346Z"
+    description: A Helm chart for deploying the OpenMeter Pod Runtime Watcher to Kubernetes
+    digest: 110137f48ae564f7be9623d17ebda957e007fb62cadc2aa0cd16ef0e469133a5
+    name: openmeter-pod-runtime-watcher
+    type: application
+    urls:
+    - https://github.com/tizz98/openmeter-pod-runtime-watcher/releases/download/openmeter-pod-runtime-watcher-0.1.1/openmeter-pod-runtime-watcher-0.1.1.tgz
+    version: 0.1.1
+generated: "2023-09-27T20:48:48.242577947Z"
