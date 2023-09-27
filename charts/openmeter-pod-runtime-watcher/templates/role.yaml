@@ -1,0 +1,16 @@
+{{- if not .Values.settings.namespace_override -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "openmeter-pod-runtime-watcher.serviceAccountName" . }}
+  labels:
+    {{- include "openmeter-pod-runtime-watcher.labels" . | nindent 4 }}
+rules:
+  # Allow listing pods for the namespace we're deployed in
+  - verbs:
+      - list
+    apiGroups:
+      - ""
+    resources:
+      - pods
+{{- end }}

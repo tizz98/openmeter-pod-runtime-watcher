@@ -1,0 +1,22 @@
+[package]
+name = "openmeter-pod-runtime-watcher"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+kube = { version="0.86.0", features = ["runtime"] }
+k8s-openapi = { version = "0.20.0", features = ["v1_28"] }
+reqwest = { version = "0.11.20", features = ["json"] }
+cloudevents-sdk = { version = "0.7.0", features = ["reqwest"] }
+tokio = { version = "1", features = ["full"] }
+anyhow = "1.0.75"
+futures = "0.3.28"
+config = "0.13.3"
+lazy_static = "1.4.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tracing = "0.1.37"
+tracing-subscriber = "0.3.17"
+uuid = { version = "1.4.1", features = ["v4"] }

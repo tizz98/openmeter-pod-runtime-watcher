@@ -1,0 +1,20 @@
+# Apply with the following:
+# kubectl apply -f examples/k8s-manifests/pod.yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: openmeter-pod-runtime-watcher-example
+  labels:
+    k8s.openmeter.cloud/monitor: kernel_runtime
+    k8s.openmeter.cloud/subject: eli-test
+    k8s.openmeter.cloud/data-file_id: 00703462-bb3e-4d99-966e-518fa207fcf8
+    k8s.openmeter.cloud/data-kernel_session_id: 934f5a4b-8f59-44bd-a69c-2d39bda56aad
+    k8s.openmeter.cloud/data-project_id: 6f0dff14-67d4-4cdf-bca4-b60019211e1a
+    k8s.openmeter.cloud/data-space_id: 285698d3-23cc-4816-b891-d554351611d0
+    k8s.openmeter.cloud/data-hardware_kind: cpu
+    k8s.openmeter.cloud/data-hardware_size: small
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: ['sh', '-c', 'echo The app is running! && sleep 3600']

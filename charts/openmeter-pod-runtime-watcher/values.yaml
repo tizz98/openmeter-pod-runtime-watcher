@@ -1,0 +1,80 @@
+# Default values for openmeter-pod-runtime-watcher.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1  # shouldn't be changed unless you want to report metrics more than once!
+
+image:
+  repository: ghcr.io/tizz98/openmeter-pod-runtime-watcher
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Each of these settings map to a setting in `src/settings.rs` via environment variables.
+settings:
+  # ** The following settings are required for the OpenMeter Pod Runtime Watcher to function. **
+
+  # One of these two values are required. `openmeter_token_secret` is recommended for production.
+  openmeter_token: ""
+  openmeter_token_secret: ""
+
+  # ** The following settings are optional, but should be tuned to your environment. **
+
+  openmeter_url: "https://openmeter.cloud"
+  monitor_rate_seconds: 5
+
+  # ** The following settings are optional, and you generally don't need to change them. **
+
+  # set the label to watch pods for, the value is the name of the monitor in OpenMeter
+  label_selector: "k8s.openmeter.cloud/monitor"
+  # the source for the events, sent directly to OpenMeter in the event payload
+  source: "kubernetes-api"
+
+  # ** Experimental settings **
+
+  # watch pods in this namespace rather than the namespace this chart is deployed to. requires a cluster role binding.
+  namespace_override: ""
