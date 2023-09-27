@@ -9,5 +9,6 @@ The version number in this changelog corresponds to the `appVersion` field in th
 
 ## [Unreleased]
 
+## [0.1.0] - 2023-09-27
 ### Added
 - Track pod lifetime and send to OpenMeter
