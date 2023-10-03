@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Update `README.md` with full pod example and how labels map to cloudevents JSON
+
 ## [0.1.3] - 2023-10-03
 ### Changed
 - Update helm chart readme to reflect `oci://` usage
