@@ -70,17 +70,17 @@ This will map to the following cloudevents JSON request to OpenMeter:
     "specversion": "1.0",
     "type": "kernel_runtime",
     "source": "kubernetes-api",
+    "subject": "eli-test",
     "id": "9c6d076d-3c8f-456a-9df1-85e247e34151",
     "time": "2023-10-03T20:00:00Z",
     "datacontenttype": "application/json",
     "data": {
-       "file_id": "00703462-bb3e-4d99-966e-518fa207fcf8",
+        "file_id": "00703462-bb3e-4d99-966e-518fa207fcf8",
         "kernel_session_id": "934f5a4b-8f59-44bd-a69c-2d39bda56aad",
         "project_id": "6f0dff14-67d4-4cdf-bca4-b60019211e1a",
         "space_id": "285698d3-23cc-4816-b891-d554351611d0",
         "hardware_kind": "cpu",
         "hardware_size": "small",
-        "subject": "eli-test",
         "duration": "5"
     }
 }
