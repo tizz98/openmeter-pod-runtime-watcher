@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2023-10-03
+### Changed
+- Update helm chart readme to reflect `oci://` usage
+- Tag docker images with `v` prefix when matching semver
+
 ## [0.1.2] - 2023-10-03
 ### Changed
 - Bump version for helm chart

@@ -15,13 +15,10 @@ INSTALL_NAME=openmeter-pod-runtime-watcher
 # Create secret to use as an env var
 kubectl create secret generic ${OPENMETER_TOKEN_SECRET_NAME} --from-literal=token=${OPENMETER_TOKEN} --namespace=${NAMESPACE}
 
-# Add the repo and update.
-helm repo add openmeter-pod-runtime-watcher https://tizz98.github.io/openmeter-pod-runtime-watcher
-helm repo update
-
 # Install the chart.
 # Ideally you'd use gitops or something else to manage this rather than a bunch of `--set` flags.
-helm upgrade ${INSTALL_NAME} openmeter-pod-runtime-watcher/openmeter-pod-runtime-watcher \
+# You can specify --version=X.Y.Z to install a specific version. Otherwise the latest will be used.
+helm upgrade ${INSTALL_NAME} oci://ghcr.io/tizz98/helm-charts/openmeter-pod-runtime-watcher \
   --namespace=${NAMESPACE} \
   --set "settings.namespace_override=${NAMESPACE_TO_WATCH}" \
   --set "settings.openmeter_token_secret=${OPENMETER_TOKEN_SECRET_NAME}" \
